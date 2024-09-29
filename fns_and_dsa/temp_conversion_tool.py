@@ -2,6 +2,10 @@
 FAHRENHEIT_TO_CELSIUS_FACTOR = 5 / 9
 CELSIUS_TO_FAHRENHEIT_FACTOR = 9 / 5
 
+# Check the values of global conversion factors
+print(f"FAHRENHEIT_TO_CELSIUS_FACTOR: {FAHRENHEIT_TO_CELSIUS_FACTOR}")
+print(f"CELSIUS_TO_FAHRENHEIT_FACTOR: {CELSIUS_TO_FAHRENHEIT_FACTOR}")
+
 # Function to convert Fahrenheit to Celsius
 def convert_to_celsius(fahrenheit):
     return (fahrenheit - 32) * FAHRENHEIT_TO_CELSIUS_FACTOR
@@ -32,3 +36,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+
