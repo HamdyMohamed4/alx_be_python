@@ -1,24 +1,36 @@
 # daily_reminder.py
 
-# Prompt the user for task details
-task = input("Enter a task description: ")
-priority = input("Enter the task's priority (high, medium, low): ").lower()
-time_bound = input("Is the task time-bound? (yes or no): ").lower()
+# Prompt for a single task
+task = input("Enter your task: ")
+priority = input("Priority (high/medium/low): ").strip().lower()
+time_bound = input("Is it time-bound? (yes/no): ").strip().lower()
 
-# Provide reminder based on priority using match-case
+# Initialize reminder message
+reminder_message = ""
+
+# Process the task based on priority using a Match Case statement
 match priority:
     case "high":
-        reminder = f"The task '{task}' is of high priority."
+        reminder_message = f"'{task}' is a high priority task"
+        if time_bound == "yes":
+            reminder_message += " that requires immediate attention today!"
+        else:
+            reminder_message += "."
     case "medium":
-        reminder = f"The task '{task}' is of medium priority."
+        reminder_message = f"'{task}' is a medium priority task"
+        if time_bound == "yes":
+            reminder_message += " please try to complete it soon!"
+        else:
+            reminder_message += ". You can address it when convenient."
     case "low":
-        reminder = f"The task '{task}' is of low priority."
+        reminder_message = f"'{task}' is a low priority task."
+        if time_bound == "yes":
+            reminder_message += " However, it requires immediate attention today!"
+        else:
+            reminder_message += " Consider completing it when you have free time."
     case _:
-        reminder = f"The task '{task}' has an unknown priority level."
-
-# Check if the task is time-sensitive and modify the reminder
-if time_bound == "yes":
-    reminder += " This task requires immediate attention today!"
+        reminder_message = "Invalid priority level. Please enter 'high', 'medium', or 'low'."
 
 # Print the customized reminder
-print(reminder)
+print(reminder_message)
+
